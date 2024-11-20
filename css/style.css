@@ -108,6 +108,11 @@ section{
     color: var(--white);
 }
 
+.flex-btn{
+    display:flex;
+    gap:1rem;
+}
+
 .header{
     background-color: var(--white);
     border-bottom: var(--border);
@@ -190,6 +195,13 @@ section{
     padding: 2rem;
     text-align: center;
     width:30rem;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: .2s linear;
+}
+
+.header .flex .profile.active{
+    transform: scale(1);
 }
 
 .header .flex .profile img{
