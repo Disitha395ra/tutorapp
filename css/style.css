@@ -46,6 +46,11 @@ html{
 
 body{
     background-color: var(--light-bg);
+    padding-left: 30rem;
+}
+
+body.active{
+    padding-left: 0;
 }
 
 section{
@@ -197,7 +202,7 @@ section{
     width:30rem;
     transform: scale(0);
     transform-origin: top right;
-    transition: .2s linear;
+    z-index: 2000;
 }
 
 .header .flex .profile.active{
@@ -223,16 +228,114 @@ section{
 }
 
 
+/*side bar*/
+
+.side-bar{
+    position: fixed;
+    top: 0;left: 0;
+    height: 100vh;
+    width: 30rem;
+    background-color: var(--white);
+    border-right: var(--border);
+    transition: .2s linear;
+    z-index: 1200;
+}
+
+.side-bar .close-side-bar{
+    text-align: right;
+    padding: 1rem;
+    padding-bottom: 0;
+    display: none;
+}
+
+.side-bar .close-side-bar i{
+    height: 4rem;
+    width: 4rem;
+    line-height: 4.4rem;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    background-color: var(--red);
+    text-align: center;
+    border-radius: .5rem; 
+}
+
+.side-bar .close-side-bar i:hover{
+    background-color: var(--black);
+}
+
+.side-bar .profile{
+    padding:1rem 2rem;
+    text-align: center;
+
+}
+
+.side-bar .profile img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: .5rem;
+}
+
+.side-bar .profile h3{
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.side-bar .profile span{
+    color: var(--light-color);
+    font-size: 1.6rem;
+}
+
+.side-bar .navbar a{
+    display: block;
+    padding: 2rem;
+    margin: .5rem;
+    font-size: 1.8rem;
+}
+
+.side-bar .navbar a i{
+    color: var(--main-color);
+    margin-right: 1rem;
+    transition: .2s linear;
+}
+
+.side-bar .navbar a span{
+    color: var(--light-color);
+}
+
+.side-bar .navbar a:hover{
+    background-color: var(--light-bg);
+}
+
+.side-bar .navbar a:hover i{
+    margin-right: 2.5rem;
+}
+
+.side-bar.active{
+    left: -31rem;
+}
 
 
+/*footer*/
 
+.footer{
+    position: relative;
+    bottom: 0;right: 0; left: 0;
+    background-color: var(--white);
+    border-top: var(--border);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: var(--black);
+    font-size: 2rem;
+    margin-top: 2rem;
+    z-index: 3000;
+}
 
-
-
-
-
-
-
+.footer span{
+    color: var(--main-color);
+}
 
 
 
@@ -243,6 +346,25 @@ section{
 
 
 /* media quries */
+@media (max-width:1200px){
+    body{
+        padding-left: 0;
+    }
+
+    .side-bar{
+        transition: .2s linear;
+        left: -30rem;
+    }
+
+    .side-bar.active{
+        left: 0;
+        box-shadow: 0 0 0 100vw rgba(0,0,0,.7);
+    }
+
+    .side-bar .close-side-bar{
+        display: block;
+    }
+}
 
 @media (max-width:991px){
     html{
@@ -262,6 +384,7 @@ section{
         border-top: var(--border);
         background-color: var(--white);
         clip-path: polygon(0 0, 100% 0, 100% 0, 0,0);
+        transition: .2s linear;
     }
 }
 @media (max-width:450px) {
